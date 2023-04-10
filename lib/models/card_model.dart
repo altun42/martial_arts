@@ -2,9 +2,12 @@
 class Card {
   String path;
   String name;
+  String philosophy;
+
   Card({
     required this.path,
     required this.name,
+    required this.philosophy,
   });
 }
 class Images {

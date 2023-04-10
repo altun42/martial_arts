@@ -1,11 +1,13 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bounceable/flutter_bounceable.dart';
 import 'package:get/get.dart';
 import 'package:martial_arts/modules/home/home_screen_controller.dart';
 import 'package:martial_arts/shared/widgets/martial_card.dart';
 import 'package:scroll_snap_list/scroll_snap_list.dart';
 
+import '../martialDetail/martial_detail_screen.dart';
 import 'card_list.dart';
 
 class HomeScreen extends GetView<HomeScreenController> {
@@ -13,10 +15,7 @@ class HomeScreen extends GetView<HomeScreenController> {
 
   @override
   Widget build(BuildContext context) {
-    RxInt focusedIndex = 0.obs;
-    void _onItemFocus(int index) {
-      focusedIndex.value = index;
-    }
+   
 
     Get.put(HomeScreenController());
     return Scaffold(
@@ -131,20 +130,20 @@ class HomeScreen extends GetView<HomeScreenController> {
                     child: Container(
                       width: 400,
                       height: 280,
-                      child: Expanded(
-                          child: ScrollSnapList(
+                      child: ScrollSnapList(
                         itemCount: cards.length,
                         dynamicItemSize: true,
                         itemSize: 230,
                         onItemFocus: (p0) {
-                          controller.imageIndex.value = p0;
+                      controller.imageIndex.value = p0;
+                      
                         },
                         reverse: true,
                         itemBuilder: (context, index) {
-                          return MartialCard(
-                              path: cards[index].path, name: cards[index].name);
+                      return MartialCard(
+                          path: cards[index].path, name: cards[index].name,philosophy: cards[index].philosophy,);
                         },
-                      )),
+                      ),
                     ),
                   )
                 ],

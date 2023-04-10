@@ -8,6 +8,7 @@ import '../modules/home/home_screen_binding.dart';
 part 'app_routes.dart';
 
 class AppPages {
+  // ignore: constant_identifier_names
   static const INITIAL = Routes.HOME;
   static final routes = [
     GetPage(
